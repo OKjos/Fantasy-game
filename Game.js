@@ -61,12 +61,15 @@ function lifeSelection() {
   const raceCalcc = races[Math.floor(Math.random() * races.length)];
   const age = Math.floor(Math.random() * (raceCalc.maxAge - raceCalc.minAge + 1)) + raceCalc.minAge;
 
-  console.log(`${raceCalc.name} age: ${age}`);
+
+  document.getElementById('Race').innerHTML = raceCalc.name;
+  document.getElementById('Class').innerHTML = classCalc;
+  document.getElementById('Skill').innerHTML = classStore[0];
+  document.getElementById('Skill2').innerHTML = classStore[1];
+  document.getElementById('Skill3').innerHTML = classStore[2];
 
 
-  return { race: raceCalc, classes: classCalc, skills: classStore, age: age};
 }
-console.log(lifeSelection());
 
 function stats() {
 
@@ -80,9 +83,27 @@ function stats() {
   let Mana = Math.floor(Math.random() * 10 + 1);
   let Perception = Math.floor(Math.random() * 10 + 1);
 
-  return {strength, Learning, Willpower, Dexterity, Toughness, Charisma, Appearance, Mana, Perception};
+  document.getElementById('Strength').innerHTML = strength;
+  document.getElementById('Learning').innerHTML = Learning;
+  document.getElementById('Willpower').innerHTML = Willpower;
+  document.getElementById('Dexterity').innerHTML = Dexterity;
+  document.getElementById('Toughness').innerHTML = Toughness;
+  document.getElementById('Charisma').innerHTML = Charisma;
+  document.getElementById('Appearance').innerHTML = Appearance;
+  document.getElementById('Mana').innerHTML = Mana;
+  document.getElementById('Perception').innerHTML = Perception;
+
 }
-console.log(stats());
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  let button = document.getElementById('randomize-button');
+
+  button.addEventListener('click', function() {
+    lifeSelection();
+    stats();
+  });
+});
 
 
 
