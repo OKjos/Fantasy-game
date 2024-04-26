@@ -1,3 +1,17 @@
+.randomize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh; 
+  margin: 0 auto; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
 .race-skills-container {
   text-align: center;
 }
