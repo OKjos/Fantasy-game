@@ -4,6 +4,12 @@
   align-items: center;
   height: 5vh; 
   margin: 0 auto; 
+  border-radius: 8px;
+}
+
+.randomize:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 .grid-container {
