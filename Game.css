@@ -25,3 +25,12 @@
 .stats-container {
   text-align: center;
 }
+
+.life-container {
+  text-align: center;
+}
+
+.centered {
+  margin: 0 auto;
+  width: 50%; 
+}

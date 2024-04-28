@@ -69,6 +69,24 @@ function lifeSelection() {
   document.getElementById('Skill3').innerHTML = classStore[2];
 
 
+  let kids = ["0", "1", "2", "3"];
+  let wives = ["0", "0", "0", "1", "2", "3"];
+  let death = ["Old age", "fighting to the death", "slipping and felling onto a rock", "being betrayed by your comrades", "being killed by an unknown God"];
+  let deedes = [" good being.", " evil being.", " mediocre being.", " being that wasted all their potential."];
+
+  let randKids = Math.floor(Math.random() * kids.length);
+  let randWives = Math.floor(Math.random() * wives.length);
+  let randDeath = Math.floor(Math.random() * death.length);
+  let randDeedes = Math.floor(Math.random() * deedes.length);
+
+  let raceDiscription = "You are a " + raceCalc.name + ". You have lived for " + age + " years." + "You had a total of " + kids[randKids] + " kids." + " You had a total of " + wives[randWives] + " wives/wife. " + " You died by " + death[randDeath] + ". You were a " + deedes[randDeedes];
+
+  let skillsAndClasses = "You have the class of " + classCalc + ". Your skills are " + classStore[0] + ", " + classStore[1] + ", " + classStore[2];
+
+
+  document.getElementById('Skiils-Classes').innerHTML = skillsAndClasses;
+  document.getElementById('life').innerHTML = raceDiscription;
+
 }
 
 function stats() {
