@@ -6,7 +6,6 @@
 // loop through the skills a number of times till we get the correct amount
 
 function lifeSelection() {
-
   const races = [
     { name: "Elf", maxAge: 1900, minAge: 1510 },
     { name: "Dwarf", maxAge: 500, minAge: 410 },
@@ -16,7 +15,6 @@ function lifeSelection() {
     { name: "Angel", maxAge: 2300, minAge: 1700 },
     { name: "Dark Elf", maxAge: 1300, minAge: 1210 }
   ];
-
 
   const skills = [
     { classes: "Fighter", Skills: ["Archery", "Athletics", "Dodge", "Find weakness", "Metallurgy", "Stealth", "Swimming", "Two weapon combat"] },
@@ -29,20 +27,45 @@ function lifeSelection() {
     { classes: "Bard", Skills: ["Music"]},
     { classes: "Monk", Skills: ["Alertness", "Athletics", "Concentration", "Dodge", "Find weakness", "Healing", "Literacy", "Stealth","First aid"]},
     { classes: "Healer", Skills: ["Alertness", "Concentration", "Cooking", "Find weakness", "Healing", "Herbalism", "Literacy","First aid"]},
-    { classes: "Weaponsmith", Skills: ["Appraising", "Athletics", "Concentration", "Detect traps", "Find weakness", "Metallurgy", "Smithing"]},
-    { classes: "Archer", Skills: ["Alertness", "Archery", "Concentration", "Dodge", "Fletchery", "Stealth","First aid"]},
-    { classes: "Merchant", Skills: ["Alchemy", "Appraising", "Detect item status", "Gemology", "Herbalism", "Pick pockets", "Survival"]},
-    { classes: "Farmer", Skills: ["Archery", "Bridge building", "Cooking", "Fletchery", "Food preservation", "Gardening", "Herbalism", "Smithing", "Stealth", "Survival", "Woodcraft","First aid"]},
-    { classes: "Mindcrafter", Skills: ["Concentration", "Gemology", "Herbalism", "Literacy", "Music", "Stealth"]},
-    { classes: "Barbarian", Skills: ["Athletics", "Dodge", "Herbalism", "Literacy", "Stealth", "Survival", "Swimming", "Two weapon combat"]},
-    { classes: "Druid", Skills: ["Concentration", "Gardening", "Healing", "Herbalism", "Literacy", "Survival", "Swimming", "Woodcraft","First aid"]},
-    { classes: "Necromancer", Skills: ["Alchemy", "Appraising", "Concentration", "Find weakness", "Food preservation", "Herbalism", "Literacy", "Necromancy", "Stealth"]},
-    { classes: "Elementalist", Skills: ["Concentration", "Gemology", "Healing", "Literacy", "Metallurgy", "Swimming","First aid"]},
-    { classes: "Beastfighter", Skills: ["Athletics", "Dodge", "Healing", "Herbalism", "Literacy", "Stealth", "Survival", "Swimming"]},
-    { classes: "Duelist", Skills: ["Alertness", "Athletics", "Concentration", "Dodge", "Find weakness", "Healing", "Law"]},
-    { classes: "Chaos Knight", Skills: ["Athletics", "Backstabbing", "Dodge", "Find weakness", "Two weapon combat"]},
+    { classes: "Weaponsmith", Skills: ["Appraising", "Blacksmithing", "Forging", "Metallurgy", "Shield crafting"]},
+    { classes: "Armorer", Skills: ["Appraising", "Armor repair", "Forging", "Metallurgy", "Shield repair"]},
+    { classes: "Blacksmith", Skills: ["Blacksmithing", "Forging", "Metallurgy"]},
+    { classes: "Armor Crafter", Skills: ["Appraising", "Armor repair", "Forging", "Metallurgy", "Shield repair"]},
+    { classes: "Farmer", Skills: ["Animal husbandry", "Cooking", "Farming", "Food preservation"]},
+    { classes: "Lumberjack", Skills: ["Athletics", "Chopping", "Climbing", "Hunting", "Trapping"]},
+    { classes: "Carpenter", Skills: ["Chopping", "Furniture crafting", "Hunting", "Repair", "Woodcraft"]},
+    { classes: "Scribe", Skills: ["Cooking", "Food preservation", "Literacy", "Research", "Script reading"]},
+    { classes: "Trader", Skills: ["Bargaining", "Languages", "Negotiation", "Parchment writing"]},
+    { classes: "Shaman", Skills: ["Concentration", "Herbalism", "Innate magic", "Meditation", "Praying"]},
+    { classes: "Painter", Skills: ["Drawing", "Painting", "Pottery"]},
+    { classes: "Locksmith", Skills: ["Lockpicking", "Metallurgy", "Pick pockets", "Repair"]},
+    { classes: "Bard", Skills: ["Performance"]},
+    { classes: "Herbalist", Skills: ["Cooking", "Farming", "Herbalism", "Languages"]},
+    { classes: "Vagrant", Skills: ["Appraising", "Dodge", "Pick pockets", "Rag picking", "Sleight of hand"]},
+    { classes: "Poet", Skills: ["Bardic performance", "Inspiration", "Language creation", "Performance", "Storytelling"]},
+    { classes: "Necromancer", Skills: ["Cursed items", "Innate magic", "Possession", "Undead manipulation"]},
+    { classes: "Innkeeper", Skills: ["Bargaining", "Business", "Etiquette", "Inn management"]},
+    { classes: "Scholar", Skills: ["Appraising", "Astronomy", "Farming", "History", "Literacy", "Nobility"]},
+    { classes: "Tracker", Skills: ["Athletics", "Hunting", "Medicine", "Picking locks", "Riding", "Searching", "Sign reading", "Tracking"]},
+    { classes: "Spelunker", Skills: ["Climbing", "Cooking", "Hunting", "Pottery", "Searching", "Survival"]},
+    { classes: "Riverman", Skills: ["Athletics", "Climbing", "Hunting", "Meditation", "Navigation", "Perception", "Swimming", "Voice reading"]},
+    { classes: "Guild boss", Skills: ["Business", "Intimidation", "Languages", "Negotiation", "Research", "Strategy"]},
+    { classes: "Explorer", Skills: ["Archery", "Athletics", "Hunting", "Navigation", "Piloting", "Perception", "Repair", "Swimming", "Ventrilloquism"]},
+    { classes: "Dreamweaver", Skills: ["Art", "Concentration", "Healing", "Illusion", "Praying", "Wisdom"]},
+    { classes: "Forester", Skills: ["Animal husbandry", "Archery", "Climbing", "Herbalism", "Meditation", "Nature knowledge", "Survival", "Voice reading"]},
+    { classes: "Shadow walker", Skills: ["Appraising", "Blacksmithing", "Cooking", "Dodge", "Innate magic", "Meditation", "Stealth", "Survival", "Voice reading"]},
+    { classes: "Sailor", Skills: ["Athletics", "Climbing", "Navigation", "Perception", "Repair", "Sailing", "Swimming", "Voice reading"]},
+    { classes: "Soldier", Skills: ["Athletics", "Blacksmithing", "Climbing", "Dodge", "Forging", "Intimidation", "Meditation", "Metallurgy", "Shield crafting", "Strategy", "Tactics", "Weapon crafting"]},
+    { classes: "Spy", Skills: ["Alertness", "Appraising", "Backstabbing", "Bargaining", "Blacksmithing", "Climbing", "Cooking", "Cryptography", "Dodge", "Eavesdropping", "Etiquette", "Forging", "Intimidation", "Lockpicking", "Meditation", "Metallurgy", "Pick pockets", "Pottery", "Repair", "Research", "Script reading", "Sleight of hand", "Stealth", "Survival", "Swimming", "Tactics", "Voice reading"]},
+    { classes: "Thief lord", Skills: ["Alertness", "Appraising", "Backstabbing", "Bargaining", "Blacksmithing", "Climbing", "Cooking", "Cryptography", "Dodge", "Eavesdropping", "Etiquette", "Forging", "Intimidation", "Lockpicking", "Meditation", "Metallurgy", "Pick pockets", "Pottery", "Repair", "Research", "Script reading", "Sleight of hand", "Stealth", "Survival", "Swimming", "Tactics", "Voice reading"]},
+    { classes: "Tinkerer", Skills: ["Blacksmithing", "Cooking", "Forging", "Invention", "Metallurgy", "Pottery", "Repair"]},
+    { classes: "Trapsmith", Skills: ["Blacksmithing", "Cooking", "Forging", "Invention", "Metallurgy", "Pottery", "Repair"]},
+    { classes: "Woodworker", Skills: ["Chopping", "Furniture crafting", "Hunting", "Repair", "Woodcraft"]},
+    { classes: "Woodsman", Skills: ["Athletics", "Climbing", "Hunting", "Meditation", "Nature knowledge", "Survival", "Voice reading"]},
+    { classes: "Witch", Skills: ["Cursed items", "Innate magic", "Possession", "Undead manipulation"]},
+    { classes: "Wizard", Skills: ["Alchemy", "Concentration", "Healing", "Herbalism", "Literacy", "Stealth", "Ventrilloquism"]},
+    { classes: "Zoologist", Skills: ["Animal husbandry", "Climbing", "Hunting", "Meditation", "Nature knowledge", "Survival", "Voice reading"]},
   ];
-
 
   const toolTipClasses = {
     "Fighter": "Sturdy class with good melee and missile capabilities. Generally very average in abilities and skills.",
@@ -51,7 +74,7 @@ function lifeSelection() {
     "Thief": "Specialist in thievery, stealth, and traps. Poor combat, missile, and casting prospects. Considered very difficult for most races.",
     "Assassin": "Master of poisons and use of critical strikes to defeat opponents. Vulnerable in the early game, but strong melee and missile prospects as the game progresses. Excellent skillset and class powers.",
     "Wizard": "Master of arcane magic. Generally incompetent with melee or missile weapons, but extremely powerful once a few spells are learned. Considered to be one of the most powerful classes.",
-    "Priest": "Master of divine magic. Limited ability with melee or missile weapons, but powerful spellcasters. Their ability to automatically identify the B/U/C status of items is very convenient.",
+    "Priest": "Master ofdivine magic. Limited ability with melee or missile weapons, but powerful spellcasters. Their ability to automatically identify the B/U/C status of items is very convenient.",
     "Bard": "Musically inclined class with an otherwise random skillset. Difficulty and playstyle is variable depending on the whims of the RNG.",
     "Monk": "Excels at hand-to-hand fighting with strong potential for midgame casting. Difficult to start, but immensely powerful as the game progresses.",
     "Healer": "Extremely durable class due to immense health regeneration abilities and high starting toughness. Excellent prospects for melee and casting abilities.",
@@ -69,9 +92,7 @@ function lifeSelection() {
     "Chaos Knight": "Challenge class that starts with high PV armor, but also with very chaotic alignment and is thus unable to receive many quests without changing alignment. Changing alignment from Chaotic incurs ongoing damage.  Can vary significantly in difficulty from game to game due to starting with 3 random corruptions."
     }
 
-
-
-  const toolTipSkills = { 
+  const toolTipSkills = {
     "Alchemy": "Allows brewing potions using a fixed list of recipes",
     "Alertness": "Gives a chance to evade combat magic and trap",
     "Appraising": "Performs item quality evaluation",
@@ -110,16 +131,11 @@ function lifeSelection() {
     "Woodcraft": "Decreases the time to cut down trees, increases critical hit chance against plant monsters"
     };
 
-
-
-
-
-
   const remainingSkills = skills.slice();
   const remainingClasses = remainingSkills.map(skills => skills.classes);
 
-  const raceCalc = races[Math.floor(Math.random() * races.length)];
-  const classCalc = remainingClasses[Math.floor(Math.random() * remainingClasses.length)];
+  let raceCalc = races[Math.floor(Math.random() * races.length)];
+  let classCalc = remainingClasses[Math.floor(Math.random() * remainingClasses.length)];
 
   const classStore = [];
   for (let i = 0; i < 3; i++) {
@@ -129,19 +145,14 @@ function lifeSelection() {
     remainingClasses.splice(remainingSkills[skillIndex].classes, 1);
   }
 
-
-  const raceCalcc = races[Math.floor(Math.random() * races.length)];
+  let raceCalc2 = races[Math.floor(Math.random() * races.length)];
   const age = Math.floor(Math.random() * (raceCalc.maxAge - raceCalc.minAge + 1)) + raceCalc.minAge;
-
 
   document.getElementById('Race').innerHTML = raceCalc.name;
   document.getElementById('Class').innerHTML = classCalc;
   document.getElementById('Skill').innerHTML = classStore[0];
   document.getElementById('Skill2').innerHTML = classStore[1];
   document.getElementById('Skill3').innerHTML = classStore[2];
-
-
-
 
   let kids = ["0", "1", "2", "3"];
   let wives = ["0", "0", "0", "1", "2", "3"];
@@ -153,57 +164,43 @@ function lifeSelection() {
   let randDeath = Math.floor(Math.random() * death.length);
   let randDeedes = Math.floor(Math.random() * deedes.length);
 
-
-
-
-
-
-
-  let raceDiscription = "You are a " + raceCalc.name + ". You have lived for " + age + " years." + "You had a total of " + kids[randKids] + " kids." + " You had a total of " + wives[randWives] + " wives/wife. " + " You died by " + death[randDeath] + ". You were a " + deedes[randDeedes];
+  let raceDiscription = "You are a " + raceCalc.name + ". You have lived for " + age + " years." + "You had a total of " + kids[randKids] + " kids." + " You had a total of " + wives[randWives] + " partners. " + " You died by " + death[randDeath] + ". You were a " + deedes[randDeedes];
 
   document.getElementById('life').innerHTML = raceDiscription;
 
+  let afterLife = [
+    "You will travel the world as a spirt not remembering your life",
+    "You will awake as an undead remembering your past but never have free will again",
+    "It is just pitch black you feel and see nothing" 
+  ];
 
+  let afterLifeCombo;
 
+  let reincarnation = "You have been reincarnated into a " + raceCalc.name;
 
-
-
-
-
-
-  const toolTipForClasses = toolTipClasses[classCalc];;
-  const toolTipForSkills = [];
-  classStore.forEach(skill => {
-    let tooltip = toolTipForSkills[skill];  });
-
-  document.getElementById('Class').title = toolTipForClasses[classCalc];
-  for (let i = 0; i < classStore.length; i++) {
-    let elementId = 'Skills-Classes' + (i + 1);
-    let element = document.getElementById(elementId);
-    if (element !== null) {
-      element.title = toolTipForSkills[classStore[i]];
+  const reincarnationRandom = Math.floor(Math.random() * 100)
+  if (reincarnationRandom <= 5) {
+    // Function to re-roll the race
+    function reRollRace() {
+      const raceCalc = races[Math.floor(Math.random() * races.length)];
+      document.getElementById('Race').innerHTML = raceCalc.name;
+      return raceCalc;
     }
+    raceCalc = reRollRace();
+    afterLifeCombo = reincarnation;
+  } else {
+    let afterDeath = Math.floor(Math.random() * afterLife.length);
+    afterLifeCombo = afterLife[afterDeath];
   }
 
-
-
-
-
-  
-
-
+  document.getElementById('reincarnation').innerHTML = afterLifeCombo;
 
   let skillsAndClasses = "You have the class of " + classCalc + ". Your skills are " + classStore[0] + ", " + classStore[1] + ", and " + classStore[2];
 
   document.getElementById('Skiils-Classes').innerHTML = skillsAndClasses;
-
-
-
-
 }
 
 function stats() {
-
   let strength = Math.floor(Math.random() * 10 + 1);
   let Learning = Math.floor(Math.random() * 10 + 1);
   let Willpower = Math.floor(Math.random() * 10 + 1);
@@ -223,9 +220,7 @@ function stats() {
   document.getElementById('Appearance').innerHTML = Appearance;
   document.getElementById('Mana').innerHTML = Mana;
   document.getElementById('Perception').innerHTML = Perception;
-
 }
-
 
 document.addEventListener("DOMContentLoaded", function(){
   let button = document.getElementById('randomize-button');
