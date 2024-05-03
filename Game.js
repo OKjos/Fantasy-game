@@ -13,7 +13,13 @@ function lifeSelection() {
     { name: "Demon", maxAge: 2200, minAge: 1800 },
     { name: "Dragon", maxAge: 6000, minAge: 4000 },
     { name: "Angel", maxAge: 2300, minAge: 1700 },
-    { name: "Dark Elf", maxAge: 1300, minAge: 1210 }
+    { name: "Dark Elf", maxAge: 1300, minAge: 1210 },
+    { name: "Dryad", maxAge: 250, minAge: 100 },
+    { name: "Goblin", maxAge: 65, minAge: 50 },
+    { name: "Merfolk", maxAge: 800, minAge: 500 },
+    { name: "Zombie", maxAge: 90, minAge: 60 },
+    { name: "Ghoul", maxAge: 200, minAge: 150 }
+
   ];
 
   const skills = [
@@ -156,8 +162,10 @@ function lifeSelection() {
 
   let kids = ["0", "1", "2", "3"];
   let wives = ["0", "0", "0", "1", "2", "3"];
-  let death = ["Old age", "fighting to the death", "slipping and felling onto a rock", "being betrayed by your comrades", "being killed by an unknown God"];
-  let deedes = [" good being.", " evil being.", " mediocre being.", " being that wasted all their potential."];
+  let death = ["Old age", "fighting to the death", "slipping and falling onto a rock", "being betrayed by your comrades", "being killed by an unknown God", "You have died by falling into a trap set by your closest ally"
+  
+  ];
+  let deedes = [" good being.", " evil being.", " mediocre being.", " being that wasted all their potential.", " Your trust was your undoing"];
 
   let randKids = Math.floor(Math.random() * kids.length);
   let randWives = Math.floor(Math.random() * wives.length);
@@ -180,7 +188,6 @@ function lifeSelection() {
 
   const reincarnationRandom = Math.floor(Math.random() * 100)
   if (reincarnationRandom <= 5) {
-    // Function to re-roll the race
     function reRollRace() {
       const raceCalc = races[Math.floor(Math.random() * races.length)];
       document.getElementById('Race').innerHTML = raceCalc.name;
